@@ -1,40 +1,56 @@
-<form
-    name="form"
-    (ngSubmit)="onSubmit()"
-    #f="ngForm">
+<div class="form-card">
+    <h1>Create an Account</h1>
+    <h3 class="sub">Join the community</h3>
+    <form
+        name="form"
+        (ngSubmit)="onSubmit()"
+        #f="ngForm">
 
-    <label for="username">Username</label>
-    <input
-        type="text"
-        name="username"
-        [(ngModel)]="form.username"
-        required
-        #username="ngModel" />
+        <div class="row">
+            <div>
+                <label for="firstName">First Name</label>
+                <input
+                    type="text"
+                    name="firstName"
+                    placeholder="Juan"
+                    [(ngModel)]="form.firstName"
+                    required
+                    #firstName="ngModel" />
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Dela Cruz"
+                    [(ngModel)]="form.lastName"
+                    required
+                    #lastName="ngModel" />
+            </div>
+        </div>
 
-    <label for="password">Password</label>
-    <input
-        type="password"
-        name="password"
-        [(ngModel)]="form.password"
-        required
-        #password="ngModel" />
+        <label for="username">Username</label>
+        <input
+            type="text"
+            name="username"
+            placeholder="Up to 16 characters"
+            maxlength="16"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel" />
 
-    <label for="firstName">First Name</label>
-    <input
-        type="text"
-        name="firstName"
-        [(ngModel)]="form.firstName"
-        required
-        #firstName="ngModel" />
+        <label for="password">Password</label>
+        <input
+            type="password"
+            name="password"
+            placeholder="Up to 16 characters"
+            maxlength="16"
+            [(ngModel)]="form.password"
+            required
+            #password="ngModel" />
 
-    <label for="lastName">Last Name</label>
-    <input
-        type="lastName"
-        name="lastName"
-        [(ngModel)]="form.lastName"
-        required
-        #lastName="ngModel" />
+        <button class="btn">Submit</button>
 
-    <button>Submit</button>
-
-</form>
+    </form>
+    <p class="switch">Already have an account? <a href="/login">Login</a></p>
+</div>

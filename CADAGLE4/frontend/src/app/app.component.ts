@@ -9,6 +9,7 @@ import { TokenStorageService } from './services/token-storage.service';
 })
 export class AppComponent {
   title = 'frontend';
+  path = window.location.pathname;
 
   constructor(public tokenStorage: TokenStorageService) { }
 

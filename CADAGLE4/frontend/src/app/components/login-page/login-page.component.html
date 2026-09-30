@@ -1,23 +1,26 @@
-<div>
+<div class="form-card">
     <h1>Welcome Back</h1>
-    <h3>Login Here</h3>
+    <h3 class="sub">Login Here</h3>
     <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
         <div>
-            <label for="username">Email</label>
+            <label for="username">Username</label>
             <input
                 required
                 type="text"
                 name="username"
+                placeholder="Enter your username"
                 [(ngModel)]="form.username"
                 #username="ngModel">
 
             <label for="password">Password</label>
             <input type="password"
                 name="password"
+                placeholder="Enter your password"
                 [(ngModel)]="form.password"
                 required
                 #password="ngModel">
         </div>
-        <button>Submit</button>
+        <button class="btn">Submit</button>
     </form>
+    <p class="switch">No account yet? <a href="/register">Register</a></p>
 </div>

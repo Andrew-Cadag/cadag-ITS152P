@@ -1,4 +1,22 @@
-<div *ngFor="let post of posts">
-    <h3><a href="/posts/{{ post.id }}"> {{ post.title }} </a></h3>
-    <p>by {{ post.firstName }} {{ post.lastName }} ; on {{ post.dateCreated }}</p>
+<section class="hero">
+    <h1>Latest Posts</h1>
+    <p>Stories and updates from the community. Click a post to expand it.</p>
+</section>
+
+<p class="empty" *ngIf="!posts || posts.length === 0">No posts yet.</p>
+
+<div class="accordion">
+    <details class="item" name="posts" *ngFor="let post of posts">
+        <summary>
+            <div class="head">
+                <p class="meta">{{ post.dateCreated | date:'MMM d, y' }} &middot; {{ post.firstName }} {{ post.lastName }}</p>
+                <h3>{{ post.title }}</h3>
+            </div>
+            <span class="chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="panel">
+            <p class="content">{{ post.body }}</p>
+            <a class="open" href="/posts/{{ post.id }}">Open full post &rarr;</a>
+        </div>
+    </details>
 </div>
