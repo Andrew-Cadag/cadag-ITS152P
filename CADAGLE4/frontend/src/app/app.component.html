@@ -1,0 +1,9 @@
+<nav>
+    <a href="/">Home</a> |
+    <a href="/login">Login</a> |
+    <a href="/register">Register</a>
+    <span *ngIf="tokenStorage.getToken()"> | Logged in | <a href="#" (click)="logout(); $event.preventDefault()">Logout</a></span>
+</nav>
+<hr>
+
+<router-outlet></router-outlet>

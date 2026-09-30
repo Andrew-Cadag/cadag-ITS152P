@@ -37,6 +37,15 @@ namespace BlogAPI
             builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
+            // LE5: allow the Angular app to call this API
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngular", policy =>
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -48,6 +57,7 @@ namespace BlogAPI
 
             app.UseHttpsRedirection();
 
+            app.UseCors("AllowAngular"); // LE5
             app.UseAuthentication();
             app.UseAuthorization();
 

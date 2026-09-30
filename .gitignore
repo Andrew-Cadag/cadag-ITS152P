@@ -5,3 +5,7 @@ obj/
 *.suo
 *.dbmdl
 *.jfm
+
+node_modules/
+.angular/
+dist/
